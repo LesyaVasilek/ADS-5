@@ -1,12 +1,14 @@
 // Copyright 2021 NNTU-CS
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
+#include <string>
 
 template<typename T, int size>
 class TStack {
-   private:
+    private:
     int v;
     T* mass;
+    
     public:
     TStack() : v(-1) {
         mass = new T[size];
