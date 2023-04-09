@@ -18,7 +18,7 @@ class TStack {
         return (v == size - 1);
     }
     void push(T num) {
-        if (isFull()) {
+        if (Full()) {
             throw std::string("full!");
         } else {
             mass[++v] = num;
@@ -28,7 +28,7 @@ class TStack {
         return mass[v];
     }
     const T& pop() {
-        if (isEmpty()) {
+        if (Empty()) {
             throw std::string("empty!");
         } else {
             return mass[v--];
