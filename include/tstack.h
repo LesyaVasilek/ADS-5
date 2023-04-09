@@ -5,11 +5,11 @@
 
 template<typename T, int size>
 class TStack {
-    private:
+private:
     int v;
     T* mass;
-    
-    public:
+
+public:
     TStack() : v(-1) {
         mass = new T[size];
     }
@@ -22,7 +22,8 @@ class TStack {
     void push(T num) {
         if (Full()) {
             throw std::string("full!");
-        } else {
+        }
+        else {
             mass[++v] = num;
         }
     }
@@ -32,7 +33,8 @@ class TStack {
     const T& pop() {
         if (Empty()) {
             throw std::string("empty!");
-        } else {
+        }
+        else {
             return mass[v--];
         }
     }
