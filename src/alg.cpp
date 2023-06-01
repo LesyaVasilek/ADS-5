@@ -22,19 +22,16 @@ std::string infx2pstfx(std::string inf) {
         if (priority(inf[i]) == -1) {
             result += inf[i];
             i++;
-        }
-        else if (priority(inf[i]) == 2 || priority(inf[i]) == 3) {
+        } else if (priority(inf[i]) == 2 || priority(inf[i]) == 3) {
             if (fstack.empty() || fstack.getLast() == '(') {
                 fstack.push_back(inf[i]);
                 result += " ";
                 i++;
-            }
-            else if (priority(inf[i]) > priority(fstack.getLast())) {
+            } else if (priority(inf[i]) > priority(fstack.getLast())) {
                 fstack.push_back(inf[i]);
                 result += " ";
                 i++;
-            }
-            else if (priority(inf[i]) <= priority(fstack.getLast())) {
+            } else if (priority(inf[i]) <= priority(fstack.getLast())) {
                 result += " ";
                 result += fstack.pop_back();
                 result += " ";
@@ -47,12 +44,10 @@ std::string infx2pstfx(std::string inf) {
                 fstack.push_back(inf[i]);
                 i++;
             }
-        }
-        else if (priority(inf[i]) == 0) {
+        } else if (priority(inf[i]) == 0) {
             fstack.push_back(inf[i]);
             i++;
-        }
-        else if (priority(inf[i]) == 1) {
+        } else if (priority(inf[i]) == 1) {
             while (fstack.getLast() != '(') {
                 result += " ";
                 result += fstack.pop_back();
@@ -102,8 +97,7 @@ int eval(std::string pref) {
         if (priority(pref[i]) == -1 && pref[i] != ' ') {
             number = pref[i];
             sstack.push_back(res(number));
-        }
-        else if (priority(pref[i]) == 2 || priority(pref[i]) == 3) {
+        } else if (priority(pref[i]) == 2 || priority(pref[i]) == 3) {
             second = sstack.pop_back();
             first = sstack.pop_back();
             sstack.push_back(operat(first, second, pref[i]));
